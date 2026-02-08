@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Number Friends</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="top">
+        <h1>Number Friends</h1>
+        <p class="subtitle">Tap the number you hear and see.</p>
+      </header>
+
+      <section class="game-panel" aria-live="polite">
+        <p class="prompt-label">Find this number</p>
+        <p id="target-number" class="target-number">1</p>
+        <p id="feedback" class="feedback">Let's play.</p>
+      </section>
+
+      <section class="choices" id="choices" aria-label="Number choices"></section>
+
+      <section class="controls">
+        <button id="say-btn" class="control-btn" type="button">Say Number</button>
+        <button id="next-btn" class="control-btn" type="button">Next</button>
+      </section>
+
+      <section class="tracker" aria-label="Choose a number">
+        <p class="tracker-label">Choose a number to practice</p>
+        <div id="selector-grid" class="selector-grid"></div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

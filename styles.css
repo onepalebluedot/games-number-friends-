@@ -1,0 +1,256 @@
+:root {
+  --bg-top: #fff9da;
+  --bg-bottom: #d8f3ff;
+  --panel: #ffffff;
+  --ink: #18425b;
+  --good: #1f9d65;
+  --try: #c85b34;
+  --accent-1: #f6be4f;
+  --accent-2: #76c1f0;
+  --accent-3: #8cd6a7;
+  --card: #f4fbff;
+  --shadow: 0 8px 24px rgba(24, 66, 91, 0.16);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
+  font-family: "Avenir Next", "Trebuchet MS", "Comic Sans MS", sans-serif;
+  color: var(--ink);
+  background: linear-gradient(180deg, var(--bg-top), var(--bg-bottom));
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  padding: 24px 16px 40px;
+}
+
+.app {
+  width: min(760px, 100%);
+  display: grid;
+  gap: 16px;
+}
+
+.top {
+  text-align: center;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 3rem);
+  letter-spacing: 0.02em;
+}
+
+.subtitle {
+  margin: 8px 0 0;
+  font-size: clamp(1rem, 2vw, 1.3rem);
+}
+
+.game-panel {
+  background: var(--panel);
+  border-radius: 22px;
+  box-shadow: var(--shadow);
+  text-align: center;
+  padding: 18px 14px 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+.prompt-label {
+  margin: 0;
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+.target-number {
+  margin: 4px 0;
+  font-size: clamp(4rem, 16vw, 7rem);
+  line-height: 1;
+  font-weight: 800;
+}
+
+.feedback {
+  margin: 4px 0 0;
+  min-height: 1.3em;
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.feedback.good {
+  color: var(--good);
+}
+
+.feedback.try {
+  color: var(--try);
+}
+
+.choices {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.choice-btn {
+  min-height: 120px;
+  border: 0;
+  border-radius: 18px;
+  font-size: clamp(2.4rem, 8vw, 4rem);
+  font-weight: 800;
+  color: var(--ink);
+  background: var(--card);
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  touch-action: manipulation;
+  transition: transform 120ms ease;
+}
+
+.choice-btn:nth-child(3n + 1) {
+  background: #ffe8b0;
+}
+
+.choice-btn:nth-child(3n + 2) {
+  background: #cbe9fb;
+}
+
+.choice-btn:nth-child(3n + 3) {
+  background: #d7f2e1;
+}
+
+.choice-btn:active {
+  transform: scale(0.98);
+}
+
+.choice-btn.correct {
+  animation: correct-pop 380ms ease-out;
+}
+
+.controls {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.control-btn {
+  min-height: 64px;
+  border: 0;
+  border-radius: 14px;
+  background: #ffffff;
+  color: var(--ink);
+  box-shadow: var(--shadow);
+  font-size: 1.2rem;
+  font-weight: 700;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
+.tracker {
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 18px;
+  padding: 12px;
+}
+
+.tracker-label {
+  margin: 0 0 10px;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.selector-grid {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  gap: 8px;
+}
+
+.selector-btn {
+  min-height: 44px;
+  border: 0;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #3f6980;
+  background: #eef6fa;
+  box-shadow: 0 4px 12px rgba(24, 66, 91, 0.12);
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
+.selector-btn.active {
+  color: #0b4d6f;
+  background: #bde7ff;
+  outline: 3px solid #5bb7ea;
+}
+
+.game-panel.celebrate {
+  animation: panel-pop 420ms ease-out;
+}
+
+.sparkle {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  opacity: 0;
+  pointer-events: none;
+  animation: sparkle-burst 680ms ease-out forwards;
+}
+
+@keyframes correct-pop {
+  0% {
+    transform: scale(1);
+  }
+  35% {
+    transform: scale(1.08);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes panel-pop {
+  0% {
+    transform: scale(1);
+  }
+  35% {
+    transform: scale(1.02);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes sparkle-burst {
+  0% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(var(--dx), var(--dy)) scale(0.2);
+  }
+}
+
+@media (max-width: 640px) {
+  body {
+    padding: 16px 12px 28px;
+  }
+
+  .choice-btn {
+    min-height: 96px;
+  }
+
+  .selector-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
