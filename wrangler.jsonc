@@ -1,6 +1,6 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "number-learning-game",
+  "name": "games-number-friends",
   "compatibility_date": "2026-02-08",
   "assets": {
     "directory": "."
