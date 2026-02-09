@@ -6,6 +6,7 @@ A toddler-friendly iPad web game for learning number recognition from **1 to 9**
 
 - Shows a target number to find.
 - Gives 3 large tap choices.
+- Shows shape groups below each number option so players can count and match.
 - Uses cheerful feedback, sparkle animation, and a success chime on correct answers.
 - Includes speech support with a **Say Number** button.
 - Lets the player choose a practice number (`1-9`) or tap **Next** for a random one.
@@ -33,6 +34,7 @@ Then visit `http://localhost:8080`.
 ## Controls
 
 - Tap a large number card to answer.
+- Count the shapes under each option and match the correct number.
 - Tap **Say Number** to hear the current target.
 - Tap a number in **Choose a number to practice** to make it the current target.
 - Tap **Next** to move to a random target number.

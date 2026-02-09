@@ -100,17 +100,20 @@ h1 {
 }
 
 .choice-btn {
-  min-height: 120px;
+  min-height: 152px;
   border: 0;
   border-radius: 18px;
-  font-size: clamp(2.4rem, 8vw, 4rem);
-  font-weight: 800;
   color: var(--ink);
   background: var(--card);
   box-shadow: var(--shadow);
   cursor: pointer;
   touch-action: manipulation;
   transition: transform 120ms ease;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  gap: 10px;
+  padding: 12px 8px 14px;
 }
 
 .choice-btn:nth-child(3n + 1) {
@@ -131,6 +134,28 @@ h1 {
 
 .choice-btn.correct {
   animation: correct-pop 380ms ease-out;
+}
+
+.choice-number {
+  font-size: clamp(2.3rem, 7.6vw, 3.5rem);
+  line-height: 1;
+  font-weight: 800;
+}
+
+.option-shapes {
+  display: grid;
+  grid-template-columns: repeat(3, 12px);
+  justify-content: center;
+  gap: 6px;
+  min-height: 30px;
+}
+
+.shape-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #ff8fb2;
+  box-shadow: 0 2px 6px rgba(255, 143, 178, 0.28);
 }
 
 .controls {
@@ -247,7 +272,7 @@ h1 {
   }
 
   .choice-btn {
-    min-height: 96px;
+    min-height: 128px;
   }
 
   .selector-grid {

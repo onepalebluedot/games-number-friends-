@@ -119,8 +119,23 @@ function renderChoices() {
     const button = document.createElement("button");
     button.type = "button";
     button.className = "choice-btn";
-    button.textContent = String(number);
-    button.setAttribute("aria-label", `Number ${number}`);
+    button.setAttribute("aria-label", `Number ${number} with ${number} shapes`);
+
+    const numberLabel = document.createElement("span");
+    numberLabel.className = "choice-number";
+    numberLabel.textContent = String(number);
+
+    const shapes = document.createElement("div");
+    shapes.className = "option-shapes";
+    shapes.setAttribute("aria-hidden", "true");
+    for (let index = 0; index < number; index += 1) {
+      const dot = document.createElement("span");
+      dot.className = "shape-dot";
+      shapes.appendChild(dot);
+    }
+
+    button.appendChild(numberLabel);
+    button.appendChild(shapes);
     button.addEventListener("click", () => onChoice(number, button));
     choicesEl.appendChild(button);
   });
@@ -153,7 +168,7 @@ function newRound({ targetNumber = null, announce = false } = {}) {
   target = targetNumber ?? randomItem(NUMBERS);
   options = buildOptions(target);
   targetEl.textContent = String(target);
-  setFeedback("Tap the matching number.", "");
+  setFeedback("Count the shapes below each number, then tap the match.", "");
   renderChoices();
   renderSelector();
   if (announce) speakNumber(target);
